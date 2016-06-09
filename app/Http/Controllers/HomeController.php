@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+use App\Journal;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -22,8 +24,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $journal_id = $request->user()->journal_id;
+        $journalName = Journal::find($journal_id)->name;
+        $posts = Post::all();
+        return view('home', [
+            'posts' => $posts,
+            'journalName' => $journalName
+        ]);
     }
 }
