@@ -26,12 +26,13 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        // TODO: show posts for related tags that the user has recently used
         $journal_id = $request->user()->journal_id;
-        $journalName = Journal::find($journal_id)->name;
+        $journal = Journal::find($journal_id);
         $posts = Post::all();
         return view('home', [
             'posts' => $posts,
-            'journalName' => $journalName
+            'journal' => $journal
         ]);
     }
 }

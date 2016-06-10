@@ -5,10 +5,36 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">{{$journalName}}</div>
+                <div class="panel-heading">{{$journal->name}}</div>
+
+                <!-- New Post Form -->
+                <form action="{{ url('post')}}" method="POST" class="form-horizontal">
+                    {{ csrf_field() }}
+
+                    <!-- Post Content -->
+                    <div class="form-group">
+                        <label for="post-content" class="col-sm-3 control-label">Post</label>
+
+                        <input type="hidden" name='journal_id' value="{{ $journal->id }}"/>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="content" id="post-content" class="form-control" value="{{ old('post') }}">
+                        </div>
+                    </div>
+
+                    <!-- Post Button -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-6">
+                            <button type="submit" class="btn btn-default">
+                                <i class="fa fa-btn fa-plus"></i>Post
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
                 @foreach ($posts as $post)
                     <div class="panel-body">
-                        {{$post}}
+                        {{$post->content}}
                     </div>
                 @endforeach
             </div>

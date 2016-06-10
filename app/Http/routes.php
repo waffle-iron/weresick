@@ -34,3 +34,4 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::post('/post', 'UserController@post');
