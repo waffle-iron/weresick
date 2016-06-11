@@ -9,6 +9,18 @@
 
                 <div class="panel-body">
                     ال newsfeed المفروض يبقي هنا.
+
+                    <table class="table">
+                        @foreach ($journals as $journal) 
+                            <tr>  
+                                <td>
+                                    <a href="{{url('/journal/'.$journal->id)}}">
+                                        {{$journal->name}}
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>

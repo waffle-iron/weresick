@@ -20,19 +20,33 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the user's journal.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function myJournal(Request $request)
     {
-        // TODO: show posts for related tags that the user has recently used
         $journal_id = $request->user()->journal_id;
+        return redirect('/journal/'.$journal_id);
+    }
+
+    public function getJournal(Request $request)
+    {
+        $journal_id = $request->id;
         $journal = Journal::find($journal_id);
         $posts = Post::where('journal_id', $journal_id)->get();
-        return view('home', [
+        return view('journal', [
             'posts' => $posts,
             'journal' => $journal,
+        ]);
+    }
+
+    public function newsFeed()
+    {
+        // TODO: show posts for related tags that the user has recently used
+        $journals = Journal::all();
+        return view('welcome', [
+            'journals' => $journals
         ]);
     }
 }

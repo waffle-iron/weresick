@@ -7,6 +7,7 @@ use App\Journal;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
+use Redirect;
 
 class UserController extends Controller
 {
@@ -30,15 +31,18 @@ class UserController extends Controller
         	'journal_id' => 'required'
         ]);
 
-    	$user = $request->user();
+        if ($validator->fails()) {
+            return Redirect::back();
+        }
+        $user = $request->user();
 
-    	$post = new Post;
-    	$post->content = $request->content;
-    	$post->user_id = $user->id;
+        $post = new Post;
+        $post->content = $request->content;
+        $post->user_id = $user->id;
 
-    	$journal = Journal::find($request->journal_id);
-    	$journal->posts()->save($post);
+        $journal = Journal::find($request->journal_id);
+        $journal->posts()->save($post);
 
-    	return redirect('/home');
+        return Redirect::back();
     }
 }

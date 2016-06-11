@@ -11,18 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::get('/home', function () {
-// 	if (Auth::check()) {
-//     // The user is logged in...
-// 		return view('home', ['username' => Auth::user()->name]);
-// 	}
-// 	return redirect('/');
-// });
-
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -33,5 +21,8 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// Application Routes...
+Route::get('/', 'HomeController@newsFeed');
+Route::get('/myJournal', 'HomeController@myJournal');
+Route::get('/journal/{id}', 'HomeController@getJournal');
 Route::post('/post', 'UserController@post');
