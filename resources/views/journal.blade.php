@@ -35,10 +35,13 @@
 
                     <table class="table">
                     
-                    @foreach ($posts as $post) 
-                    <tr>  
+                    @foreach ($post_user as $post_id => $post) 
+                    <tr>
                         <td>
-                        {{$post->content}}
+                        {{key($post)}}
+                        </td>
+                        <td>
+                        {{current($post)}}
                         </td>
                     </tr>
                     @endforeach
