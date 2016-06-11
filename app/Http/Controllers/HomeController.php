@@ -29,10 +29,10 @@ class HomeController extends Controller
         // TODO: show posts for related tags that the user has recently used
         $journal_id = $request->user()->journal_id;
         $journal = Journal::find($journal_id);
-        $posts = Post::all();
+        $posts = Post::where('journal_id', $journal_id)->get();
         return view('home', [
             'posts' => $posts,
-            'journal' => $journal
+            'journal' => $journal,
         ]);
     }
 }
