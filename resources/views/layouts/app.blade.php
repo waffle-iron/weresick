@@ -38,14 +38,14 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    كلنا مرضي
+                    كلنا مرضى
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/myJournal') }}">كراستي</a></li>
+                    <li><a href="{{ url('/myJournal') }}">كراستى</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
