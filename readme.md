@@ -5,7 +5,7 @@ This is a website based on a philosophy.
 ## Dependencies
 This project uses Laravel 5.2 php framework.
 * A typical LAMP/WAMP/XAMP or whatever AMP stack you've got.
-* Make sure you have `composer` installed.
+* Make sure you have [composer](https://getcomposer.org) installed.
 * If you're a windows or mac user you may need laravel homestead.
 
 ## Set up development environment
