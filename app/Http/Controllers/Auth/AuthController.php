@@ -29,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -75,8 +75,6 @@ class AuthController extends Controller
         ]);
 
         $newUser->journal()->save($newJournal);
-
-        $newUser->journal_id = $newJournal->id;
 
         $newUser->save();
 

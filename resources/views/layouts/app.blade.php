@@ -38,7 +38,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    كلنا كوكو
+                    كلنا مرضي
                 </a>
             </div>
 
