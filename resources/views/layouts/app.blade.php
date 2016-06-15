@@ -9,7 +9,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
     <link rel="stylesheet" href="/bootstrap-rtl/css/bootstrap-rtl.min.css">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
